@@ -1,0 +1,14 @@
+#! /bin/bash
+#
+#$Author: ee364f04 $
+#$Date: 2013-01-10 10:42:52 -0500 (Thu, 10 Jan 2013) $
+#$HeadURL: svn+ssh://ece364sv@ecegrid-lnx/home/ecegrid/a/ece364sv/svn/S13/students/ee364f04/Lab01/testheader $
+#$Revision: 47454 $
+
+I=$@
+
+for N in {$I..0}
+do
+    echo "$N"
+done
+exit 0

@@ -1,0 +1,44 @@
+#! /bin/bash
+#
+#$Author$
+#$Date$
+#$HeadURL$
+#$Revision$
+
+F=$@
+d=0
+sum=0
+a=0
+t=0
+
+if (($# < 1))
+then
+    echo "usage: process_temps.bash $File"
+    exit 1
+elif [[ ! -r $1 ]]
+then
+    echo "Error: $1 is not a readable file."
+    exit 2
+fi
+
+while read time name
+do
+    set $name
+
+   if (($t>0))
+   then
+       for N in ${name[*]}
+       do
+           sum=$(($sum + $N))
+           d=$(($d+1))
+           a=$(($sum/$d))
+       done
+       echo "Average temperature for time $time was $a C."
+   fi
+   t=1
+   sum=0
+   d=0
+   a=0
+done <$1
+
+exit 0

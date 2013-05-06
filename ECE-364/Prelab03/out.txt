@@ -1,0 +1,1 @@
+Simulating :Intel Core i7: with cache size:32: and issue width:16: results in CPI:1.456: and total execution time:4368

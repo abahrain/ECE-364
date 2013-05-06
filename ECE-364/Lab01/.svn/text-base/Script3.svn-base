@@ -1,0 +1,17 @@
+#! /bin/bash
+#
+#$Author$
+#$Date$
+#$HeadURL$
+#$Revision$
+
+I=$@ #input variable
+
+for ((N=$I; N>-1; N-- )) # loop condition
+do
+    if ((($N%3)==0)) #test to see if divisable by 3
+    then
+        echo "$N"
+    fi
+done
+exit 0

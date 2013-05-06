@@ -1,0 +1,12 @@
+loads the value at $t7 in !1000
+loads the value at $t1 in $t0
+loads the value at $t2 in 256
+stores the value at $t7 in 1
+adds the values at the two locations and puts it in !23
+subtracts values at the two location and puts it in 1
+multiplies values at the two locations and puts it in !3
+divides values at the two locations and puts it in $t4
+subtracts values at the two location and puts it in !1
+adds the values at the two locations and puts it in !7
+test if the value at location is 0
+jumps to the new location

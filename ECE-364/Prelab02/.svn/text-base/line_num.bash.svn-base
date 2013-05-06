@@ -1,0 +1,27 @@
+#! /bin/bash
+#
+#$Author$
+#$Date$
+#$HeadURL$
+#$Revision$
+
+File=$@
+a=1
+
+if (($# != 1))
+then
+    echo "Invalid entry"
+    exit 0
+elif [[ ! -e $File ]] && [[ ! -r $File ]]
+then
+    echo "Cannot read $File"
+    exit 0
+fi
+
+while read line
+do
+    echo "$a: $line"
+    ((a=a+1))
+done < $File
+
+exit 0

@@ -1,0 +1,8 @@
+#! /usr/bin/env python2.6
+#
+#$Author: ee364f04 $
+#$Date: 2013-02-02 22:21:52 -0500 (Sat, 02 Feb 2013) $
+#$HeadURL: svn+ssh://ece364sv@ecegrid-lnx/home/ecegrid/a/ece364sv/svn/S13/students/ee364f04/Prelab05/hello $
+#$Revision: 49788 $
+
+print "Hello World!"

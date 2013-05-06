@@ -1,0 +1,17 @@
+#! /bin/bash
+#
+#$Author$
+#$Date$
+#$HeadURL$
+#$Revision$
+
+File=$@
+
+if [[ -e $File ]] && [[ -r $File ]]
+then
+    echo "File $File is readable!"
+else
+    touch $File
+fi
+
+exit 0

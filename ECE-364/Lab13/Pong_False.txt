@@ -1,0 +1,7 @@
+cheight 400
+ballsize 20
+pspeed 25
+dx 10
+dy 12
+maxbs 70
+minbs 10

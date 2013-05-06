@@ -1,0 +1,67 @@
+#! /usr/bin/env python2.6
+#
+#$Author: ee364f04 $
+#$Date: 2013-04-02 21:26:27 -0400 (Tue, 02 Apr 2013) $
+#$HeadURL: svn+ssh://ece364sv@ecegrid-lnx/home/ecegrid/a/ece364sv/svn/S13/students/ee364f04/Lab11/InstructionFetchAndDecode.py $
+#$Revision: 55181 $
+
+class Instruction:
+  def __init__(self, op, reg, mem1, mem2):
+    self.op = op
+    self.reg = reg
+    self.mem1 = mem1
+    self.mem2 = mem2
+
+  def getOp(self):
+    return self.op
+
+  def getReg(self):
+    return self.reg
+
+  def getMem1(self):
+    return self.mem1
+
+  def getMem2(self):
+    return self.mem2
+
+class InstructionFetchAndDecode:
+  def __init__(self, mem):
+    self.mem = mem
+    self.pc = 0
+
+  def fetchInstruction(self):
+    val = self.mem.loadValue(self.pc)
+    return val[0]
+
+  def updatePC(self, pc):
+    self.pc = pc
+
+  def incrementPC(self):
+    self.pc = self.pc + 1
+
+  def processInstruction(self, machineCode):
+    halt = self.getPartialValue(30, 31, machineCode)
+    if (halt != 0):
+      return None
+    op = self.getPartialValue(27 ,29, machineCode)
+    reg = self.getPartialValue(24, 26, machineCode)
+    mem1type = self.getPartialValue(22, 23, machineCode)
+    mem1 = self.getPartialValue(12 ,21, machineCode)
+    mem2type = self.getPartialValue(10, 11, machineCode)
+    mem2 = self.getPartialValue(0, 9, machineCode)
+    if (mem1type == 3 or mem2type == 3):
+        return None
+    opList = ["lw", "sw", "add", "sub", "mul", "div", "beq", "jmp"]
+    op = opList[op]
+    memList = ["reg", "imm", "mem"]
+    mem1 = (memList[mem1type], mem1)
+    mem2 = (memList[mem2type], mem2)
+    return Instruction(op, reg, mem1, mem2)
+
+
+  def getPartialValue(self, index1, index2, num):
+    mask = 0;
+    for i in range(index1, index2 + 1):
+      mask |= 1 << i
+    return (num & mask) >> index1
+

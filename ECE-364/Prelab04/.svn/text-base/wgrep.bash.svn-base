@@ -1,0 +1,32 @@
+#! /bin/bash
+#
+#$Author$
+#$Date$
+#$HeadURL$
+#$Revision$
+
+F=$@
+d=0
+
+if (($# != 2))
+then
+    echo "Usage: wgrep.bash $1 $2"
+    exit 1
+elif [[ ! -e $2 ]] && [[ ! -r $2 ]]
+then
+    echo "Error: $1 is not readable"
+    exit 1
+fi
+
+while read line
+do
+    d=$[$d+1]
+    if $1 =~ $line
+    then
+        head -l{$d-1} $line
+        echo $line
+        cut -l{d+1} $line
+    fi
+done < $2
+
+exit 0

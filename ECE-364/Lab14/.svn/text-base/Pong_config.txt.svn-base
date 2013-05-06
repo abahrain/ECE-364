@@ -1,0 +1,11 @@
+cwidth 800
+cheight 400
+ballsize 20
+pspeed 5
+dx 10
+dy 12
+maxbs 20
+minbs 10
+winning 10
+playing 120
+holding 1

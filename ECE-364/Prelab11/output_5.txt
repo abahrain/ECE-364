@@ -1,0 +1,1 @@
+test if the value at location is 0

@@ -1,0 +1,8 @@
+#! /usr/bin/env python2.6
+#
+#$Author$
+#$Date$
+#$HeadURL$
+#$Revision$
+
+print "Hello World!"

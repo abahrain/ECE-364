@@ -1,0 +1,17 @@
+#! /bin/bash
+#
+#$Author: ee364f04 $
+#$Date: 2013-01-10 11:28:43 -0500 (Thu, 10 Jan 2013) $
+#$HeadURL: svn+ssh://ece364sv@ecegrid-lnx/home/ecegrid/a/ece364sv/svn/S13/students/ee364f04/Lab01/Script3 $
+#$Revision: 47519 $
+
+I=$@ #input variable
+
+for ((N=$I; N>-1; N-- )) # loop condition
+do
+    if ((($N%3)==0)) #test to see if divisable by 3
+    then
+        echo "$N"
+    fi
+done
+exit 0

@@ -1,0 +1,40 @@
+#! /bin/bash
+#
+#$Author$
+#$Date$
+#$HeadURL$
+#$Revision$
+
+F=$@
+IFS='_'
+
+if (($# != 1))
+then
+    echo "Usage: validate.bash <filename>"
+    exit 1
+elif [[ ! -e $1 ]] && [[ ! -r $1 ]]
+then
+    echo "Error: $1 is not readable"
+    exit 1
+fi
+
+while read -d'_'  word
+do
+    if [[ "$word" =~ ^([A-Z][a-z]*)$ ]]
+    then
+        echo ""$word" is capitalized."
+    elif [[ "$word" =~ ^([a-z]*)$ ]]
+    then
+        echo ""$word" is a lower case."
+    elif [[ "$word" =~ ^([A-Za-z]+)$ ]]
+    then
+        echo ""$word" is mixed case."
+    elif [[ "$word" =~ ^([a-z0-9]+)$ ]]
+    then
+        echo ""$word" is alphanumeric."
+    else
+        echo ""$word" is weird!"
+    fi
+done<$1
+
+exit 0

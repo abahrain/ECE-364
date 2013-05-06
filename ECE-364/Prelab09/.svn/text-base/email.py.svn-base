@@ -1,0 +1,20 @@
+#! /usr/bin/env python2.6
+#
+#$Author$
+#$Date$
+#$HeadURL$
+#$Revision$
+
+import sys
+import re
+
+n=sys.argv[1:]
+
+fp=open(sys.argv[1], "r")
+for line in fp:
+    line=line.split()
+    if re.search(r"([\w.-])@purdue([\w.-]+)",line[0]):
+        id=re.split(r"@",line[0],maxsplit=1)
+        print "%s@ecn.purdue.edu %2s/100" % (id[0],line[1])
+
+sys.exit(0)

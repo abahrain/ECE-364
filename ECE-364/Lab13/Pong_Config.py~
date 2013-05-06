@@ -1,0 +1,28 @@
+#! /usr/bin/env python2.6
+#
+#$Author$
+#$Date$
+#$HeadURL$
+#$Revision$
+
+config={
+lplay:0, #left player score
+rplay:0, #right player score
+rfb:20, # space between wall and paddle
+rs:60, #paddle size
+cwidth : 800, #court width
+cheight : 400, #court height
+ballsize: 20, #ballsize
+pspeed:25, #paddle speed
+x1:20,                   
+y1:190,  
+dx:10, # these control the
+dy:12, # ball speed in each direction
+dx2:0, #pause hold variable
+dy2:0, #pause hold variable
+rpos:370, #right player position
+lpos:370, #left player position
+nextplayer:0, # used to determine who gets the ball 0:right and 1:left
+playing:0, #determine whether we are playing or not 0:NO 1:YES
+pause:0, #pause indicater
+pa:""}

@@ -1,0 +1,35 @@
+#! /bin/bash
+#
+#$Author$
+#$Date$
+#$HeadURL$
+#$Revision$
+
+F=$@
+sum=0
+d=0
+
+if (($# != 1))
+then
+    echo "Usage: sum_ifs.bash <filename>"
+    exit 1
+elif [[ ! -e $1 ]] && [[ ! -r $1 ]]
+then
+    echo "Error: $1 is not readable"
+    exit 1
+fi
+
+IFS=':'
+while read -a line
+do
+    d=$[$d+1]
+    set $line
+    for n in $line
+    do
+        n=${n##.}
+        sum=$[$sum+$n]
+    done
+    echo "Sum of line $d is $sum"
+    sum=0
+done < $1
+exit 0

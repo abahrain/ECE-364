@@ -1,0 +1,13 @@
+lw $t7,!1000
+lw $t1,$t0
+lw $t2,256
+sw $t7,1
+beq $t3,$t7,!23
+beq $t4,$t3,1
+beq $t5,$t4,!3
+beq $t6,$t5,$t4
+beq $t6,$t6,!1
+beq $t0,$t0,!7
+beq $t6,!12
+beq !8
+halt

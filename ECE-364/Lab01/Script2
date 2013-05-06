@@ -1,0 +1,14 @@
+#! /bin/bash
+#
+#$Author: ee364f04 $
+#$Date: 2013-01-10 11:28:18 -0500 (Thu, 10 Jan 2013) $
+#$HeadURL: svn+ssh://ece364sv@ecegrid-lnx/home/ecegrid/a/ece364sv/svn/S13/students/ee364f04/Lab01/Script2 $
+#$Revision: 47518 $
+
+I=$@ #input
+
+for ((N=$I; N>-1; N-- )) #looping condition
+do
+    echo "$N"
+done
+exit 0

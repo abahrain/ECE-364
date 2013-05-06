@@ -1,0 +1,61 @@
+#! /bin/bash
+#
+#$Author$
+#$Date$
+#$HeadURL$
+#$Revision$
+
+File=$@
+t=$3
+b=$2
+g=0
+
+if (($# != 3))
+then
+    echo "usage: filter_expr.bash $1 $2 $3"
+    exit 1
+elif [[ ! -e $1 ]] || [[ ! -r $1 ]]
+then
+    echo "error: $1 is not readable"
+    exit 1
+elif (($3 < $2))
+then
+    echo "error: min was greater than max"
+    exit 2
+fi
+
+
+while read line number
+do
+    set $number
+
+    for N in $number
+    do
+        if (($N > $b)) && (($N < $t))
+        then
+            g=1
+        fi
+    done
+    if (($g==1))
+    then
+        printf "$line "
+    fi
+
+    for N in $number
+    do
+        
+        if (($N > $b)) && (($N < $t))
+        then
+            printf "$N "
+        fi
+    done
+
+    if (($g==1))
+    then
+        printf "\n"
+    fi
+    g=0
+
+done < $1
+
+exit 0

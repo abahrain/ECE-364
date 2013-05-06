@@ -1,0 +1,10 @@
+My Configuration file is called Pong_config.txt
+The file lists each value as the variable name followed by a single space and then the number.
+cwidth is court width
+cheight is court height
+ballsize is the size of the ball
+pspeed is the speed at which the paddles move
+dx is the speed of the ball in the x direction
+dy is the speed of the ball in the y direction
+maxbs is the maximum speed that the ball can travel in either the x or y direction
+minbs is the minimum speed that the ball can travel in either the x or y direction

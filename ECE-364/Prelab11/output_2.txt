@@ -1,0 +1,1 @@
+subtracts values at the two location and puts it in new location
